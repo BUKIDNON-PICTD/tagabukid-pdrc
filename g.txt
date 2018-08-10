@@ -1,0 +1,4 @@
+Executed SQL Statement : Alter table `tagabukid_pdrc`.`pdrc_detainees_details_case`  
+  add foreign key (`detaineeid`) references `tagabukid_pdrc`.`pdrc_detainees`(`objid`) 
+Error Number : 1452 
+Error Message: Cannot add or update a child row: a foreign key constraint fails (`tagabukid_pdrc`.`#sql-a0c_5cd`, CONSTRAINT `#sql-a0c_5cd_ibfk_1` FOREIGN KEY (`detaineeid`) REFERENCES `pdrc_detainees` (`objid`)) 

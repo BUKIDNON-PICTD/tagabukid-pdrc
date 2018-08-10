@@ -1,0 +1,23 @@
+<folders>
+    
+  <folder id="explorer">
+        <folder id="txn">
+            <folder id="pdrctransaction" caption="PDRC" index="1"/>
+        </folder>
+  
+        <folder id="master">
+            <folder id="pdrcmaster" caption="PDRC Master" index="1"/>
+        </folder>
+    
+        <folder id="rulemgmt" caption="Rule Management">
+            <folder id="pdrc" caption="PDRC" index="5" />
+        </folder>     
+  </folder> 
+  
+        <folder id="home">
+            <folder id="pdrc" caption="PDRC">
+                <folder id="master" caption="Master File" index="5" />
+            </folder>
+        </folder>
+
+</folders>

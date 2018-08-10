@@ -1,0 +1,6 @@
+<workunit extends="com/rameses/seti2/templates/CrudList.xml" schemaName="pdrc_causeofdropping">
+    <invokers>
+        <invoker folderid="home/pdrc/master" caption="Causes of Dropping" action="init" index="1" />
+        <invoker folderid="explorer/master/pdrcmaster" caption="Causes of Dropping" action="init" index="30" />
+    </invokers>
+</workunit>

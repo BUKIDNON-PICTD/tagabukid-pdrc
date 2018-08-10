@@ -1,0 +1,9 @@
+<workunit extends="com/rameses/seti2/templates/CrudForm.xml" schemaName="pdrc_cases">
+    <invokers>
+        <invoker type="pdrc_cases:create" action="create" caption="Cases" />
+        <invoker type="pdrc_cases:open" action="open" caption="Cases" />
+    </invokers>
+    <pages>
+        <page template="tagabukid.pdrc.views.PDRCMasterNewPage" />
+    </pages>
+</workunit>

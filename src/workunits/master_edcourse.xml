@@ -1,0 +1,9 @@
+<workunit extends="com/rameses/seti2/templates/CrudForm.xml" schemaName="pdrc_edcourse">
+    <invokers>
+        <invoker type="pdrc_edcourse:create" action="create" caption="Education (Course)" />
+        <invoker type="pdrc_edcourse:open" action="open" caption="Education (Course)" />
+    </invokers> 
+    <pages>
+        <page template="tagabukid.pdrc.views.PDRCMasterNewPageCourse" />
+    </pages>
+</workunit>

@@ -1,0 +1,9 @@
+<workunit schemaName="pdrc_detainees">
+    <invokers>
+        <invoker type="pdrc_detainees:section:open" caption="Detainee Cases" action="open" index="2" />     
+    </invokers>    
+    <code class="tagabukid.pdrc.models.DetaineeCasesInfoController" />
+    <pages>
+        <page  template="tagabukid.pdrc.views.DetaineeCasesInfoPage"/>
+    </pages>    
+</workunit>

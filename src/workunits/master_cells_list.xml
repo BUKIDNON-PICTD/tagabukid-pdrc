@@ -1,0 +1,6 @@
+<workunit extends="com/rameses/seti2/templates/CrudList.xml" schemaName="pdrc_cells">
+    <invokers>
+        <invoker folderid="home/pdrc/master" caption="Cells" action="init" index="1" />
+        <invoker folderid="explorer/master/pdrcmaster" caption="Cells" action="init" index="30" />
+    </invokers>
+</workunit>

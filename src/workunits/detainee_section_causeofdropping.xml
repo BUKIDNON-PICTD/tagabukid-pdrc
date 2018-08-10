@@ -1,0 +1,9 @@
+<workunit schemaName="pdrc_detainees">
+    <invokers>
+        <invoker type="pdrc_detainees:section:open" caption="Detainee Cause of Dropping" action="open" index="10" />      
+    </invokers>    
+    <code class="tagabukid.pdrc.models.DetaineeCauseofDropController" />
+    <pages>
+        <page  template="tagabukid.pdrc.views.DetaineeCauseOfDropping"/>
+    </pages>    
+</workunit>

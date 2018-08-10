@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workunit>
+    <invokers>
+        <invoker type="pdrc_counsel:create" action="init" caption="Counsel" />
+        <invoker type="pdrc_counsel:open" action="open" caption="Counsel" />
+    </invokers>
+    <code lang="groovy">
+        import com.rameses.rcp.common.*;
+        import com.rameses.rcp.annotations.*;
+        import com.rameses.osiris2.client.*;
+        import com.rameses.osiris2.common.*;
+        
+        public class PDRCCounselController extends CRUDController
+        {
+            String serviceName = 'TagabukidPDRCCounselService'
+            String entityName  = 'pdrc_counsel'
+            String prefixId    = 'COU'  
+        }
+    </code>
+    <pages>
+        <page template="tagabukid.pdrc.views.PDRCCounselPage" />
+    </pages>
+</workunit>

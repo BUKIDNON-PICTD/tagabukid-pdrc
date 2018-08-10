@@ -1,0 +1,12 @@
+<workunit>
+    <invokers>
+        <invoker type="pdrc_detainees:open"  action="open" target="window"/>
+        <invoker type="pdrc_detainees:create" action="create" target="window"/>
+        <invoker folderid="home/pdrc" caption="New Detainee" action="create" index="2"  />
+    </invokers>
+    <code class="tagabukid.pdrc.models.DetaineeInfoController"/>
+    <pages>
+        <page template="tagabukid.pdrc.views.DetaineeInfoPage"/>
+    </pages>
+</workunit>
+  

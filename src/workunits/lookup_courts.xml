@@ -1,0 +1,8 @@
+<workunit extends="com/rameses/seti2/templates/CrudLookup.xml" 
+          schemaName="pdrc_courts">
+  <invokers>
+      <invoker type="lookup:tagabukid_pdrc_court" caption="Lookup Courts" 
+                 action="init" target="popup" height="350"  
+                 cols="code,name,description"/>
+  </invokers>
+</workunit>

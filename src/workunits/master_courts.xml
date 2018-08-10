@@ -1,0 +1,9 @@
+<workunit extends="com/rameses/seti2/templates/CrudForm.xml" schemaName="pdrc_courts">
+    <invokers>
+        <invoker type="pdrc_courts:create" action="create" caption="Courts" />
+        <invoker type="pdrc_courts:open" action="open" caption="Courts" />
+    </invokers>
+    <pages>
+        <page template="tagabukid.pdrc.views.PDRCMasterNewPage" />
+    </pages>
+</workunit>

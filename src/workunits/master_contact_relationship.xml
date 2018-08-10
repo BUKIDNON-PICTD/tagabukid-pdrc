@@ -1,0 +1,9 @@
+<workunit extends="com/rameses/seti2/templates/CrudForm.xml" schemaName="pdrc_contact_relationships">
+    <invokers>
+        <invoker type="pdrc_contact_relationships:create" action="create" caption="Contact Relationships" />
+        <invoker type="pdrc_contact_relationships:open" action="open" caption="Contact Relationships" />
+    </invokers>
+    <pages>
+        <page template="tagabukid.pdrc.views.PDRCMasterNewPage" />
+    </pages>
+</workunit>

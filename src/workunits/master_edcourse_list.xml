@@ -1,0 +1,6 @@
+<workunit extends="com/rameses/seti2/templates/CrudList.xml" schemaName="pdrc_edcourse">
+    <invokers>
+        <invoker folderid="home/pdrc/master" caption="Education (Course)" action="init" index="1" />
+        <invoker folderid="explorer/master/pdrcmaster" caption="Education (Course)" action="init" index="30" />
+    </invokers>
+</workunit>
