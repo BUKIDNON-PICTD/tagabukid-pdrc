@@ -158,7 +158,7 @@ public class DetaineeArrestInfoPage extends javax.swing.JPanel {
                 , new Object[]{"editable", true}
                 , new Object[]{"editableWhen", null}
                 , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.NONE}
-                , new Object[]{"typeHandler", new com.rameses.rcp.common.IntegerColumnHandler(null, -1, -1)}
+                , new Object[]{"typeHandler", new com.rameses.rcp.common.CheckBoxColumnHandler(java.lang.Boolean.class, true, false)}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
                 new Object[]{"name", "datereleasedorwaive"}
@@ -204,7 +204,6 @@ public class DetaineeArrestInfoPage extends javax.swing.JPanel {
             })
         });
         xDataTable2.setHandler("arrestListHandler");
-        xDataTable2.setId("arrestListHandler");
         xDataTable2.setItems("");
         xDataTable2.setName("selectedArrest"); // NOI18N
         xHorizontalPanel1.add(xDataTable2);
