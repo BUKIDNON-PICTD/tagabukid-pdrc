@@ -62,9 +62,9 @@ class  DetaineeCasesInfoController extends CrudFormModel {
            ]
         },
         onRemoveItem : {
-            if (MsgBox.confirm('Delete item?')){                
-                entity.cases.remove(it)
+            if (MsgBox.confirm('Delete item?')){       
                 persistenceSvc.removeEntity([_schemaname:'pdrc_detainees_details_case',objid:it.objid])
+                entity.cases.remove(it)
                 caseListHandler?.load();
                 return true;
             }

@@ -1,7 +1,7 @@
 <workunit extends="com/rameses/seti2/templates/CrudLookup.xml" 
-          schemaName="pdrc_causeofdropping">
+          schemaName="pdrc_contact_relationships">
     <invokers>
-        <invoker type="lookup:tagabukid_pdrc_cod" caption="Lookup Cause of Dropping"
+        <invoker type="lookup:tagabukid_pdrc_relationship" caption="Lookup Relationship"
                  action="init" target="popup" height="700"  
                  cols="name,code,description"/>
     </invokers>

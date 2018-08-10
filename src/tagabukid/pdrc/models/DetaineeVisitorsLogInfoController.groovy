@@ -38,7 +38,6 @@ class  DetaineeVisitorsLogInfoController extends CrudFormModel {
    
     public void beforeOpen() {
        entity.putAll(parententity);
-      
     }
     public void beforeSave(o){
         if(o=='create'){
@@ -46,10 +45,13 @@ class  DetaineeVisitorsLogInfoController extends CrudFormModel {
         }
     }
    
-    def caseListHandler = [
-        fetchList: { entity?.visitors_log },
+    def visitorListHandler = [
+        fetchList: { entity?.visitors.each{
+                it.visitor = persistenceSvc.read([_schemaname:'entityindividual',objid:it.visitor.objid])
+        }},
         createItem : {
             return[
+                datevisited : dtSvc.getServerDate(),
                 recordlog : [
                     datecreated : dtSvc.getServerDate(),
                     createdbyuser : OsirisContext.env.FULLNAME,
@@ -63,17 +65,21 @@ class  DetaineeVisitorsLogInfoController extends CrudFormModel {
         },
         onRemoveItem : {
             if (MsgBox.confirm('Delete item?')){                
-                entity.visitors_log.remove(it)
+                persistenceSvc.removeEntity([_schemaname:'pdrc_detainees_visitors',objid:it.objid])
+                entity.visitors.remove(it)
                 visitorListHandler?.load();
                 return true;
             }
             return false;
         },
-//        onColumnUpdate: { o,col-> 
-//             println o.casefile
-//        },
+        onColumnUpdate: { o,col-> 
+            if(col == 'visitor'){
+                 o.visitor = persistenceSvc.read([_schemaname:'entityindividual',objid:o.visitor.objid])
+            }
+        },
         onAddItem : {
-            entity.visitors_log.add(it);
+            entity.visitors << it;
+            visitorListHandler?.load();
         },
         validate:{li->
             //def item=li.item;

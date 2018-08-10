@@ -41,9 +41,8 @@ public class DetaineeVisitorInfoPage extends javax.swing.JPanel {
 
         setDoubleBuffered(false);
 
-        xPhoto1.setDepends(new String[] {"entity.detainee"});
-        xPhoto1.setName("entity.detainee.photo"); // NOI18N
-        xPhoto1.setText("xPhoto1");
+        xPhoto1.setDepends(new String[] {"selectedVisitor"});
+        xPhoto1.setName("selectedVisitor.visitor.photo"); // NOI18N
 
         com.rameses.rcp.control.border.XTitledBorder xTitledBorder1 = new com.rameses.rcp.control.border.XTitledBorder();
         xTitledBorder1.setTitle("Visitors List");
@@ -52,7 +51,7 @@ public class DetaineeVisitorInfoPage extends javax.swing.JPanel {
         xDataTable2.setColumns(new com.rameses.rcp.common.Column[]{
             new com.rameses.rcp.common.Column(new Object[]{
                 new Object[]{"name", "visitor"}
-                , new Object[]{"caption", "Last Name"}
+                , new Object[]{"caption", "Name"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
                 , new Object[]{"maxWidth", 0}
@@ -62,12 +61,12 @@ public class DetaineeVisitorInfoPage extends javax.swing.JPanel {
                 , new Object[]{"editable", true}
                 , new Object[]{"editableWhen", null}
                 , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.NONE}
-                , new Object[]{"typeHandler", new com.rameses.rcp.common.LookupColumnHandler("#{item.visitor.name}", "lookup:tagabukid_pdrc_visitor")}
+                , new Object[]{"typeHandler", new com.rameses.rcp.common.LookupColumnHandler("#{item.visitor.entityname}", "lookup:individualwidevisitor")}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "visitor.fistname"}
-                , new Object[]{"caption", "First Name"}
-                , new Object[]{"width", 100}
+                new Object[]{"name", "visitor.gender"}
+                , new Object[]{"caption", "Gender"}
+                , new Object[]{"width", 50}
                 , new Object[]{"minWidth", 0}
                 , new Object[]{"maxWidth", 0}
                 , new Object[]{"required", false}
@@ -78,16 +77,15 @@ public class DetaineeVisitorInfoPage extends javax.swing.JPanel {
                 , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "visitor.middlename"}
-                , new Object[]{"caption", "Middle Name"}
+                new Object[]{"name", "visitor.address.text"}
+                , new Object[]{"caption", "Address"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
                 , new Object[]{"maxWidth", 0}
                 , new Object[]{"required", false}
                 , new Object[]{"resizable", true}
                 , new Object[]{"nullWhenEmpty", true}
-                , new Object[]{"editable", true}
-                , new Object[]{"editableWhen", null}
+                , new Object[]{"editable", false}
                 , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.NONE}
                 , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
             }),
@@ -97,10 +95,11 @@ public class DetaineeVisitorInfoPage extends javax.swing.JPanel {
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
                 , new Object[]{"maxWidth", 0}
-                , new Object[]{"required", false}
+                , new Object[]{"required", true}
                 , new Object[]{"resizable", true}
                 , new Object[]{"nullWhenEmpty", true}
-                , new Object[]{"editable", false}
+                , new Object[]{"editable", true}
+                , new Object[]{"editableWhen", null}
                 , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.NONE}
                 , new Object[]{"typeHandler", new com.rameses.rcp.common.LookupColumnHandler("#{item.relationship.name}", "lookup:tagabukid_pdrc_relationship")}
             }),
@@ -110,16 +109,16 @@ public class DetaineeVisitorInfoPage extends javax.swing.JPanel {
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
                 , new Object[]{"maxWidth", 0}
-                , new Object[]{"required", false}
+                , new Object[]{"required", true}
                 , new Object[]{"resizable", true}
                 , new Object[]{"nullWhenEmpty", true}
-                , new Object[]{"editable", false}
+                , new Object[]{"editable", true}
+                , new Object[]{"editableWhen", null}
                 , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.NONE}
                 , new Object[]{"typeHandler", new com.rameses.rcp.common.DateColumnHandler(null, null, null)}
             })
         });
         xDataTable2.setHandler("visitorListHandler");
-        xDataTable2.setItems("");
         xDataTable2.setName("selectedVisitor"); // NOI18N
         xHorizontalPanel2.add(xDataTable2);
 

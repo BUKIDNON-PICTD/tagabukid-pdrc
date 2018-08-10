@@ -22,7 +22,7 @@ class  DetaineeCounselInfoController extends CrudFormModel {
     def persistenceSvc;
 
     String title = "Detainee Counsel";
-    
+    def counceltypes = ['PRIVATE','PUBLIC']
     boolean isCreateAllowed(){
         return false
     }
