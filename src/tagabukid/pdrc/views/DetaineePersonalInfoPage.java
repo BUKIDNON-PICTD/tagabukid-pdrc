@@ -45,8 +45,8 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         xTextAreaBeanInfo1 = new com.rameses.rcp.control.XTextAreaBeanInfo();
         xPhoto1 = new com.rameses.rcp.control.XPhoto();
         xFormPanel4 = new com.rameses.rcp.control.XFormPanel();
-        xTextField1 = new com.rameses.rcp.control.XTextField();
-        xTextField2 = new com.rameses.rcp.control.XTextField();
+        xDecimalField1 = new com.rameses.rcp.control.XDecimalField();
+        xDecimalField2 = new com.rameses.rcp.control.XDecimalField();
         xTextField3 = new com.rameses.rcp.control.XTextField();
         xTextField7 = new com.rameses.rcp.control.XTextField();
         xComboBox1 = new com.rameses.rcp.control.XComboBox();
@@ -91,28 +91,26 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         xTitledBorder1.setTitle("Physical Attribute");
         xFormPanel4.setBorder(xTitledBorder1);
 
-        xTextField1.setCaption("Height (Ft)");
-        xTextField1.setCaptionWidth(110);
-        xTextField1.setCellPadding(new java.awt.Insets(5, 5, 0, 0));
-        xTextField1.setName("entity.heightft"); // NOI18N
-        xTextField1.setNullWhenEmpty(false);
-        xTextField1.setPreferredSize(new java.awt.Dimension(150, 20));
-        xFormPanel4.add(xTextField1);
+        xDecimalField1.setCaption("Height(m)");
+        xDecimalField1.setCaptionWidth(110);
+        xDecimalField1.setCellPadding(new java.awt.Insets(2, 5, 0, 0));
+        xDecimalField1.setName("entity.heightm"); // NOI18N
+        xDecimalField1.setRequired(true);
+        xFormPanel4.add(xDecimalField1);
 
-        xTextField2.setCaption("Weight (Kg)");
-        xTextField2.setCaptionWidth(110);
-        xTextField2.setCellPadding(new java.awt.Insets(2, 5, 0, 0));
-        xTextField2.setName("entity.weightkg"); // NOI18N
-        xTextField2.setNullWhenEmpty(false);
-        xTextField2.setPreferredSize(new java.awt.Dimension(150, 20));
-        xFormPanel4.add(xTextField2);
+        xDecimalField2.setCaption("Weight(kg)");
+        xDecimalField2.setCaptionWidth(110);
+        xDecimalField2.setCellPadding(new java.awt.Insets(2, 5, 0, 0));
+        xDecimalField2.setName("entity.weightkg"); // NOI18N
+        xDecimalField2.setRequired(true);
+        xFormPanel4.add(xDecimalField2);
 
         xTextField3.setCaption("Scars And Marks");
         xTextField3.setCaptionWidth(110);
         xTextField3.setCellPadding(new java.awt.Insets(2, 5, 0, 0));
         xTextField3.setName("entity.scarsandmarks"); // NOI18N
         xTextField3.setNullWhenEmpty(false);
-        xTextField3.setPreferredSize(new java.awt.Dimension(150, 20));
+        xTextField3.setPreferredSize(new java.awt.Dimension(0, 20));
         xFormPanel4.add(xTextField3);
 
         xTextField7.setCaption("Peculiarities");
@@ -408,6 +406,8 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
     private com.rameses.rcp.control.XDataTable xDataTable1;
     private com.rameses.rcp.control.XDateField xDateField1;
     private com.rameses.rcp.control.XDateFieldBeanInfo xDateFieldBeanInfo1;
+    private com.rameses.rcp.control.XDecimalField xDecimalField1;
+    private com.rameses.rcp.control.XDecimalField xDecimalField2;
     private com.rameses.rcp.control.XFormPanel xFormPanel1;
     private com.rameses.rcp.control.XFormPanel xFormPanel2;
     private com.rameses.rcp.control.XFormPanel xFormPanel3;
@@ -426,11 +426,9 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
     private com.rameses.rcp.control.XTextArea xTextArea1;
     private com.rameses.rcp.control.XTextArea xTextArea2;
     private com.rameses.rcp.control.XTextAreaBeanInfo xTextAreaBeanInfo1;
-    private com.rameses.rcp.control.XTextField xTextField1;
     private com.rameses.rcp.control.XTextField xTextField14;
     private com.rameses.rcp.control.XTextField xTextField15;
     private com.rameses.rcp.control.XTextField xTextField16;
-    private com.rameses.rcp.control.XTextField xTextField2;
     private com.rameses.rcp.control.XTextField xTextField3;
     private com.rameses.rcp.control.XTextField xTextField4;
     private com.rameses.rcp.control.XTextField xTextField5;

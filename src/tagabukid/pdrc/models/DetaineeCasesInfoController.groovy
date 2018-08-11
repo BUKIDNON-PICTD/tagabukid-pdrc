@@ -17,7 +17,9 @@ class  DetaineeCasesInfoController extends CrudFormModel {
         
     @Service("DateService")
     def dtSvc
-
+    
+    def counseltypes = ['PRIVATE', 'PUBLIC'];
+    
     String title = "Detainee Cases";
     
      boolean isCreateAllowed(){
