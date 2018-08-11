@@ -32,44 +32,13 @@
 	<parameter name="TITLE" isForPrompting="false" class="java.lang.String">
 		<defaultValueExpression ><![CDATA["SAMPLE TITLE"]]></defaultValueExpression>
 	</parameter>
-	<queryString><![CDATA[SELECT xx.*,xxx.`gender`,ccc.`name` FROM pdrc_detainees xx
-INNER JOIN pdrc_detainees_details_case cc ON cc.`detaineeid` = xx.`objid`
-INNER JOIN pdrc_cases ccc ON ccc.`objid` = cc.`casefile_objid`
-INNER JOIN etracs254_bukidnon.`entityindividual` xxx ON xxx.`objid` = xx.`objid`
-WHERE xxx.`gender` IN ('F','FEMALE')
-AND cc.`casefile_objid` = 'cd7d05b6-9c6a-11e8-9521-8cec4b1f1d95'
-GROUP BY xx.`objid`
-]]></queryString>
 
-	<field name="objid" class="java.lang.String"/>
 	<field name="dno" class="java.lang.String"/>
-	<field name="detainee_name" class="java.lang.String"/>
-	<field name="detainee_lastname" class="java.lang.String"/>
-	<field name="detainee_firstname" class="java.lang.String"/>
-	<field name="detainee_middlename" class="java.lang.String"/>
-	<field name="alias" class="java.lang.String"/>
-	<field name="detainee_address" class="java.lang.String"/>
-	<field name="detainee_address_text" class="java.lang.String"/>
-	<field name="detainee_address_barangayid" class="java.lang.String"/>
-	<field name="detainee_address_municipalityid" class="java.lang.String"/>
-	<field name="heightm" class="java.lang.Double"/>
-	<field name="weightkg" class="java.lang.Double"/>
-	<field name="eyecolor" class="java.lang.String"/>
-	<field name="haircolor" class="java.lang.String"/>
-	<field name="bodybuild" class="java.lang.String"/>
-	<field name="complexion" class="java.lang.String"/>
-	<field name="scarsandmarks" class="java.lang.String"/>
-	<field name="peculiarities" class="java.lang.String"/>
-	<field name="oldprisonno" class="java.lang.String"/>
-	<field name="olddetaineeid" class="java.lang.String"/>
-	<field name="recordlog_createdbyuserid" class="java.lang.String"/>
-	<field name="recordlog_createdbyuser" class="java.lang.String"/>
-	<field name="recordlog_datecreated" class="java.sql.Timestamp"/>
-	<field name="recordlog_lastupdatedbyuserid" class="java.lang.String"/>
-	<field name="recordlog_lastupdatedbyuser" class="java.lang.String"/>
-	<field name="recordlog_dateoflastupdate" class="java.sql.Timestamp"/>
+	<field name="detainee.lastname" class="java.lang.String"/>
+	<field name="detainee.firstname" class="java.lang.String"/>
+	<field name="detainee.middlename" class="java.lang.String"/>
 	<field name="gender" class="java.lang.String"/>
-	<field name="name" class="java.lang.String"/>
+	<field name="casefilename" class="java.lang.String"/>
 
 		<background>
 			<band height="0"  isSplitAllowed="true" >
@@ -252,7 +221,7 @@ GROUP BY xx.`objid`
 					<textElement verticalAlignment="Middle">
 						<font/>
 					</textElement>
-				<textFieldExpression   class="java.lang.String"><![CDATA[$F{detainee_lastname}]]></textFieldExpression>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{detainee.lastname}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
@@ -288,7 +257,7 @@ GROUP BY xx.`objid`
 					<textElement verticalAlignment="Middle">
 						<font/>
 					</textElement>
-				<textFieldExpression   class="java.lang.String"><![CDATA[$F{detainee_firstname}]]></textFieldExpression>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{detainee.firstname}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
@@ -306,7 +275,7 @@ GROUP BY xx.`objid`
 					<textElement verticalAlignment="Middle">
 						<font/>
 					</textElement>
-				<textFieldExpression   class="java.lang.String"><![CDATA[$F{detainee_middlename}]]></textFieldExpression>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{detainee.middlename}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
@@ -342,7 +311,7 @@ GROUP BY xx.`objid`
 					<textElement verticalAlignment="Middle">
 						<font/>
 					</textElement>
-				<textFieldExpression   class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{casefilename}]]></textFieldExpression>
 				</textField>
 			</band>
 		</detail>
