@@ -9,8 +9,8 @@
             <folder id="pdrcmaster" caption="PDRC Master" index="1"/>
         </folder>
     
-        <folder id="rulemgmt" caption="Rule Management">
-            <folder id="pdrc" caption="PDRC" index="5" />
+        <folder id="report">
+            <folder id="pdrcreports" caption="PDRC Reports" index="5" />
         </folder>     
   </folder> 
   
