@@ -3,21 +3,21 @@ import com.rameses.rcp.common.*
 import com.rameses.osiris2.client.*
 import com.rameses.osiris2.common.*
 import java.rmi.server.*
+import tagabukid.utils.*;
 import com.rameses.common.*;
 import com.rameses.seti2.models.*;
 import com.rameses.util.*;
         
-class  DetaineeEconomicController extends CrudFormModel {
+class DetaineeEconomicController extends CrudFormModel {
     @Binding
     def binding;
-    
-    @Service("DateService")
-    def dtSvc
-    
+
     def parententity
     def svc
-    def selectedEconomic
-    
+        
+    @Service("DateService")
+    def dtSvc
+
     String title = "Detainee Economic Info";
     
      boolean isCreateAllowed(){
@@ -35,22 +35,24 @@ class  DetaineeEconomicController extends CrudFormModel {
     boolean isShowNavigation(){
         return false
     }
-   
+
+    def selectedEconomic
+
     public void beforeOpen() {
        entity.putAll(parententity);
-      
-    }
-    public void beforeSave(o){
-        if(o=='create'){
-            //do somthing
-        }
     }
    
+    public void beforeSave(o){
+        if(o=='create'){
+           
+        }
+    }
+    
     def economicListHandler = [
         fetchList: { entity?.economic },
         createItem : {
-            return[
-                recordlog : [
+           return[
+               recordlog : [
                     datecreated : dtSvc.getServerDate(),
                     createdbyuser : OsirisContext.env.FULLNAME,
                     createdbyuserid : OsirisContext.env.USERID,
@@ -58,18 +60,19 @@ class  DetaineeEconomicController extends CrudFormModel {
                     lastupdatedbyuser : OsirisContext.env.FULLNAME,
                     lastupdatedbyuserid : OsirisContext.env.USERID,
                 ],
-
-            ]
+           ]
         },
         onRemoveItem : {
             if (MsgBox.confirm('Delete item?')){                
                 entity.economic.remove(it)
-                economicListHandler?.load();
+                persistenceSvc.removeEntity([_schemaname:'pdrc_detainees_details_economic',objid:it.objid])
+                economictListHandler?.load();
                 return true;
             }
             return false;
         },
-
+      
+        
         onColumnUpdate: { o,col-> 
             o.recordlog.dateoflastupdate = dtSvc.getServerDate();
             o.recordlog.lastupdatedbyuser = OsirisContext.env.FULLNAME;
@@ -86,11 +89,10 @@ class  DetaineeEconomicController extends CrudFormModel {
             entity.economic.add(it);
         },
         validate:{li->
-            
+           
         }
     ] as EditorListModel
 
-}
 def getBusinessAddressLookup(){
         if(!selectedEconomic.businessaddress?.objid) {
             def h = { o->
@@ -113,4 +115,4 @@ def getBusinessAddressLookup(){
         }
         
     }
-  
+}

@@ -63,12 +63,12 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         xTextField4 = new com.rameses.rcp.control.XTextField();
         xTextField5 = new com.rameses.rcp.control.XTextField();
         xTextField6 = new com.rameses.rcp.control.XTextField();
-        xDateField1 = new com.rameses.rcp.control.XDateField();
+        xTextField8 = new com.rameses.rcp.control.XTextField();
+        xComboBox3 = new com.rameses.rcp.control.XComboBox();
         jScrollPane3 = new javax.swing.JScrollPane();
         xTextArea1 = new com.rameses.rcp.control.XTextArea();
         civilStatusList1 = new com.rameses.enterprise.components.CivilStatusList();
         genderList1 = new com.rameses.enterprise.components.GenderList();
-        citizenshipSuggest1 = new com.rameses.enterprise.components.CitizenshipSuggest();
         xTextField16 = new com.rameses.rcp.control.XTextField();
         xHorizontalPanel2 = new com.rameses.rcp.control.XHorizontalPanel();
         xFormPanel2 = new com.rameses.rcp.control.XFormPanel();
@@ -125,6 +125,7 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         xComboBox1.setItems("colors");
         xComboBox1.setName("entity.haircolor"); // NOI18N
         xComboBox1.setPreferredSize(new java.awt.Dimension(150, 20));
+        xComboBox1.setRequired(true);
         xComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 xComboBox1ActionPerformed(evt);
@@ -138,6 +139,7 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         xComboBox2.setItems("colors");
         xComboBox2.setName("entity.eyecolor"); // NOI18N
         xComboBox2.setPreferredSize(new java.awt.Dimension(150, 20));
+        xComboBox2.setRequired(true);
         xFormPanel4.add(xComboBox2);
 
         xComboBox4.setCaption("Body Build");
@@ -146,6 +148,7 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         xComboBox4.setItems("bodybuild");
         xComboBox4.setName("entity.bodybuild"); // NOI18N
         xComboBox4.setPreferredSize(new java.awt.Dimension(150, 20));
+        xComboBox4.setRequired(true);
         xFormPanel4.add(xComboBox4);
 
         xComboBox5.setCaption("Complexion");
@@ -154,6 +157,7 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         xComboBox5.setItems("complexion");
         xComboBox5.setName("entity.complexion"); // NOI18N
         xComboBox5.setPreferredSize(new java.awt.Dimension(150, 20));
+        xComboBox5.setRequired(true);
         xFormPanel4.add(xComboBox5);
 
         xComboBox6.setCaption("Peculiarities");
@@ -162,6 +166,7 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         xComboBox6.setItems("peculiarities");
         xComboBox6.setName("entity.peculiarities"); // NOI18N
         xComboBox6.setPreferredSize(new java.awt.Dimension(150, 20));
+        xComboBox6.setRequired(true);
         xFormPanel4.add(xComboBox6);
 
         com.rameses.rcp.control.border.XTitledBorder xTitledBorder2 = new com.rameses.rcp.control.border.XTitledBorder();
@@ -187,6 +192,7 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         entityLookup1.setExpression("#{entity.name}");
         entityLookup1.setName("entity.detainee"); // NOI18N
         entityLookup1.setPreferredSize(new java.awt.Dimension(0, 15));
+        entityLookup1.setRequired(true);
         xFormPanel1.add(entityLookup1);
 
         xTextField4.setCaption("Extension (Jr., Sr)");
@@ -222,11 +228,32 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         });
         xFormPanel1.add(xTextField6);
 
-        xDateField1.setCaption("Date of Birth");
-        xDateField1.setCaptionWidth(110);
-        xDateField1.setDepends(new String[] {"entity.detainee"});
-        xDateField1.setName("entity.detainee.birthdate"); // NOI18N
-        xFormPanel1.add(xDateField1);
+        xTextField8.setText("entity.prisonno");
+        xTextField8.setCaption("Prison No");
+        xTextField8.setCaptionWidth(110);
+        xTextField8.setName("entity.prisonno"); // NOI18N
+        xTextField8.setPreferredSize(new java.awt.Dimension(254, 20));
+        xTextField8.setRequired(true);
+        xTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xTextField8ActionPerformed(evt);
+            }
+        });
+        xFormPanel1.add(xTextField8);
+
+        xComboBox3.setCaption("Type of Inmate");
+        xComboBox3.setCaptionWidth(110);
+        xComboBox3.setDisableWhen("");
+        xComboBox3.setItems("typeofinmate");
+        xComboBox3.setName("entitytypeofinmate"); // NOI18N
+        xComboBox3.setPreferredSize(new java.awt.Dimension(150, 20));
+        xComboBox3.setRequired(true);
+        xComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xComboBox3ActionPerformed(evt);
+            }
+        });
+        xFormPanel1.add(xComboBox3);
 
         xTextArea1.setText("entity.detainee.birthplace");
         xTextArea1.setCaption("Birth Place");
@@ -234,6 +261,7 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         xTextArea1.setDepends(new String[] {"entity.detainee"});
         xTextArea1.setName("entity.detainee.birthplace"); // NOI18N
         xTextArea1.setPreferredSize(new java.awt.Dimension(300, 61));
+        xTextArea1.setRequired(true);
         xTextArea1.setTextCase(com.rameses.rcp.constant.TextCase.UPPER);
         jScrollPane3.setViewportView(xTextArea1);
 
@@ -243,26 +271,22 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         civilStatusList1.setCaptionWidth(110);
         civilStatusList1.setDepends(new String[] {"entity.detainee"});
         civilStatusList1.setName("entity.detainee.civilstatus"); // NOI18N
+        civilStatusList1.setRequired(true);
         xFormPanel1.add(civilStatusList1);
 
         genderList1.setCaption("Gender");
         genderList1.setCaptionWidth(110);
         genderList1.setDepends(new String[] {"entity.detainee"});
         genderList1.setName("entity.detainee.gender"); // NOI18N
+        genderList1.setRequired(true);
         xFormPanel1.add(genderList1);
-
-        citizenshipSuggest1.setCaption("Citizenship");
-        citizenshipSuggest1.setCaptionWidth(110);
-        citizenshipSuggest1.setDepends(new String[] {"entity.detainee"});
-        citizenshipSuggest1.setName("entity.detainee.citizenship"); // NOI18N
-        citizenshipSuggest1.setPreferredSize(new java.awt.Dimension(0, 20));
-        xFormPanel1.add(citizenshipSuggest1);
 
         xTextField16.setCaption("Alias");
         xTextField16.setCaptionWidth(110);
         xTextField16.setFontStyle("");
         xTextField16.setName("entity.alias"); // NOI18N
         xTextField16.setPreferredSize(new java.awt.Dimension(302, 20));
+        xTextField16.setRequired(true);
         xFormPanel1.add(xTextField16);
 
         xHorizontalPanel1.add(xFormPanel1);
@@ -321,7 +345,7 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         xFormPanel8.add(xLabel6);
 
         xLabel9.setBorder(new com.rameses.rcp.control.border.XLineBorder());
-        xLabel9.setCaption("Prison No.");
+        xLabel9.setCaption("Detainee No.");
         xLabel9.setCaptionWidth(105);
         xLabel9.setExpression("#{entity.detainee.dno}");
         xLabel9.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -347,9 +371,12 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
                     .addComponent(xHorizontalPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(xFormPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(xPhoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(449, 449, 449))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(xFormPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(xPhoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,8 +391,8 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
                         .addComponent(xFormPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(xHorizontalPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(xHorizontalPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(xHorizontalPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(xHorizontalPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 13, Short.MAX_VALUE))
@@ -388,9 +415,16 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_xTextField6ActionPerformed
 
+    private void xTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xTextField8ActionPerformed
+
+    private void xComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xComboBox3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.rameses.enterprise.components.CitizenshipSuggest citizenshipSuggest1;
     private com.rameses.enterprise.components.CivilStatusList civilStatusList1;
     private com.rameses.enterprise.components.EntityAddress entityAddress1;
     private com.rameses.entity.components.EntityLookup entityLookup1;
@@ -399,12 +433,12 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private com.rameses.rcp.control.XComboBox xComboBox1;
     private com.rameses.rcp.control.XComboBox xComboBox2;
+    private com.rameses.rcp.control.XComboBox xComboBox3;
     private com.rameses.rcp.control.XComboBox xComboBox4;
     private com.rameses.rcp.control.XComboBox xComboBox5;
     private com.rameses.rcp.control.XComboBox xComboBox6;
     private com.rameses.rcp.control.XComboBoxBeanInfo xComboBoxBeanInfo1;
     private com.rameses.rcp.control.XDataTable xDataTable1;
-    private com.rameses.rcp.control.XDateField xDateField1;
     private com.rameses.rcp.control.XDateFieldBeanInfo xDateFieldBeanInfo1;
     private com.rameses.rcp.control.XDecimalField xDecimalField1;
     private com.rameses.rcp.control.XDecimalField xDecimalField2;
@@ -434,6 +468,7 @@ public class DetaineePersonalInfoPage extends javax.swing.JPanel {
     private com.rameses.rcp.control.XTextField xTextField5;
     private com.rameses.rcp.control.XTextField xTextField6;
     private com.rameses.rcp.control.XTextField xTextField7;
+    private com.rameses.rcp.control.XTextField xTextField8;
     private com.rameses.rcp.control.XTextFieldBeanInfo xTextFieldBeanInfo1;
     // End of variables declaration//GEN-END:variables
 }

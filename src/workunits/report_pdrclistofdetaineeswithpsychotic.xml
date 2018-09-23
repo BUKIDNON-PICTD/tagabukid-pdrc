@@ -1,7 +1,6 @@
 <workunit extends="rpt_wtemplates/ReportController.xml" >
     <invokers>
-        <!-- role="DEVELOPER_REPORTS" --> 
-        <invoker folderid="/explorer/report/pdrcreports" action="init" caption="PDRC Master File by Gender" target="window" index="1" />
+        <invoker folderid="/explorer/report/pdrcreports" action="init" caption="PDRC List of Detainees with Psychotic Symptoms" target="window" index="1" />
         
     </invokers>
     <code>
@@ -13,19 +12,19 @@ import com.rameses.rcp.annotations.*;
 import com.rameses.osiris2.client.*;
 import com.rameses.osiris2.reports.*;
 
-class TagabukidPDRCMasterListByGenderReportController extends tagabukid.common.models.AsyncReportController
+class TagabukidPDRListofDetaineeWithPsychoticReportController extends tagabukid.common.models.AsyncReportController
 {
     @Service('TagabukidPDRCReportService') 
     def svc
     
-    String title = 'PDRC Master File by Gender'
+    String title = 'PDRC List of Detainees with Psychotic Symptoms'
     String reportPath = 'tagabukid/pdrc/reports/'
-    String reportName = reportPath + 'pdrcmasterlistbygender.jasper';
+    String reportName = reportPath + 'pdrclistofdetaineewithpsychotic.jasper';
     
     def data 
         
     void buildReportData(entity, asyncHandler){
-        svc.getPDRCMasterListByGender(entity, asyncHandler)
+        svc.getPDRCCListofDetaineeWithPsychotic(entity, asyncHandler)
     }
     
     Map getParameters(){
@@ -38,7 +37,7 @@ class TagabukidPDRCMasterListByGenderReportController extends tagabukid.common.m
             return [
                 new FormControl( "combo", [caption:'Gender', name:'entity.gender', items:'genderList', preferredSize:'100,19', captionWidth:100, allowNull:false, required:true]),
                 //new FormControl( "combo", [caption:'Status', name:'entity.status', items:'statusList', preferredSize:'100,19', captionWidth:100, allowNull:false, required:true]),
-                new FormControl( "lookup", [caption:'Case', name:'entity.casefile', preferredSize:'[0,21]', handler:'lookup:tagabukid_pdrc_cases', expression:'#{item.name}', captionWidth:100,required:true]),
+                new FormControl( "lookup", [caption:'Case', name:'entity.casefile', preferredSize:'[0,21]', handler:'lookup:tagabukid_pdrc_cases', expression:'#{item.name}', captionWidth:100,required:false]),
                 new FormControl( "checkbox", [caption:'Rerport As of', name:'entity.asof', preferredSize:'100,19' , captionWidth:100]),
                 new FormControl( "integer", [caption:'Year', name:'entity.year', required:true, preferredSize:'100,19' , captionWidth:100]),
                 //new FormControl( "combo", [caption:'Quarter', name:'entity.qtr', items:'quarters', preferredSize:'100,19', immediate:true  , captionWidth:100,required:true]),

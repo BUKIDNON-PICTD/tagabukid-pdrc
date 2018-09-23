@@ -1,0 +1,8 @@
+"selectedCase"[mode=='read']{
+    enabled:false;
+}
+
+"selectedCase"[mode!='read']{
+    enabled:true;
+}
+

@@ -8,6 +8,7 @@ import com.rameses.seti2.models.*;
 import com.rameses.util.*;
 
 class DetaineeInfoController{
+    
     @Binding
     def binding;
     
@@ -35,12 +36,12 @@ class DetaineeInfoController{
         entity = persistenceSvc.read([ _schemaname: 'pdrc_detainees', objid: entity.objid])
         entity.detainee.putAll(persistenceSvc.read([ _schemaname: 'entityindividual', objid: entity.objid])) 
         loadSections('open');
+        
     }
     
     void reloadSections(action) {
         def handlers = Inv.lookupOpeners("pdrc_detainees:section:"+action,[parententity:entity,svc:svc]);
-        def selitemid = currentSection?.id; 
-        sections.clear();
+        def selitemid = currentSection?.id;
         sections.addAll( 
             handlers.findAll {
                 def vw = it.properties.visibleWhen;

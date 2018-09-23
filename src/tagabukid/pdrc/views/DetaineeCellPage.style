@@ -1,0 +1,8 @@
+"selectedCell"[mode=='read']{
+    enabled:false;
+}
+
+"selectedCell"[mode!='read']{
+    enabled:true;
+}
+

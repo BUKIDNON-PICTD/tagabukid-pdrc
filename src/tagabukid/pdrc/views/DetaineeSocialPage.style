@@ -1,0 +1,8 @@
+"selectedSocial"[mode=='read']{
+    enabled:false;
+}
+
+"selectedSocial"[mode!='read']{
+    enabled:true;
+}
+

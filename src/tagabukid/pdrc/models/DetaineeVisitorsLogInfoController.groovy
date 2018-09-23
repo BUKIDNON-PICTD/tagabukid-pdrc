@@ -17,7 +17,7 @@ class  DetaineeVisitorsLogInfoController extends CrudFormModel {
     def parententity
     def svc
     def selectedVisitor
-    
+       
     String title = "Detainee Visitors";
     
      boolean isCreateAllowed(){

@@ -1,7 +1,6 @@
 <workunit extends="rpt_wtemplates/ReportController.xml" >
     <invokers>
-        <!-- role="DEVELOPER_REPORTS" --> 
-        <invoker folderid="/explorer/report/pdrcreports" action="init" caption="PDRC Master File by Gender" target="window" index="1" />
+        <invoker folderid="/explorer/report/pdrcreports" action="init" caption="PDRC Detainees Received And Released/Wave" target="window" index="1" />
         
     </invokers>
     <code>
@@ -13,19 +12,19 @@ import com.rameses.rcp.annotations.*;
 import com.rameses.osiris2.client.*;
 import com.rameses.osiris2.reports.*;
 
-class TagabukidPDRCMasterListByGenderReportController extends tagabukid.common.models.AsyncReportController
+class TagabukidPDRDetaineeReceivedAndReleasedReportController extends tagabukid.common.models.AsyncReportController
 {
     @Service('TagabukidPDRCReportService') 
     def svc
     
-    String title = 'PDRC Master File by Gender'
+    String title = 'PDRC Detainees Received/Released'
     String reportPath = 'tagabukid/pdrc/reports/'
-    String reportName = reportPath + 'pdrcmasterlistbygender.jasper';
+    String reportName = reportPath + 'pdrcdetaineesreceivedandreleased.jasper';
     
     def data 
         
     void buildReportData(entity, asyncHandler){
-        svc.getPDRCMasterListByGender(entity, asyncHandler)
+        svc.getPDRCDetaineesReceivedAndReceived(entity, asyncHandler)
     }
     
     Map getParameters(){

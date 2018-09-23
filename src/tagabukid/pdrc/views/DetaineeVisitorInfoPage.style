@@ -1,0 +1,8 @@
+"selectedVisitor"[mode=='read']{
+    enabled:false;
+}
+
+"selectedVisitor"[mode!='read']{
+    enabled:true;
+}
+

@@ -1,0 +1,8 @@
+"selectedArrest"[mode=='read']{
+    enabled:false;
+}
+
+"selectedArrest"[mode!='read']{
+    enabled:true;
+}
+

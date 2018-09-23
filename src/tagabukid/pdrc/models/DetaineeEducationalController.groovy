@@ -18,6 +18,8 @@ class  DetaineeArrestInfoController extends CrudFormModel {
     def svc
     def selectedEducational
     
+    def educationlevel = ['ELEMENTARY', 'HIGH SCHOOL', 'COLLEGE'];
+    
     String title = "Detainee Educational Info";
     
      boolean isCreateAllowed(){
@@ -80,5 +82,27 @@ class  DetaineeArrestInfoController extends CrudFormModel {
             //checkDuplicateIPCR(selectedDPCR.ipcrlist,item);
         }
     ] as EditorListModel
-
+    
+    def getSchoolAddressLookup(){
+        if(!selectedEducational.schooladdress?.objid) {
+            def h = { o->
+                selectedEducational.schooladdress = o;
+            };
+            def m = selectedEducational.schooladdress;
+            if(!m) m = [:];
+            return Inv.lookupOpener( "address:editor", [handler:h, entity:m] );
+        }
+        else {
+            def h = { o->
+                o._schemaname = "entity_address";
+                persistenceSvc.update( o );
+                selectedEducational.schooladdress = o;
+            };
+            def m = persistenceSvc.read( [_schemaname:'entity_address', objid:selectedEducational.schooladdress.objid] );
+            return Inv.lookupOpener( "address:editor", [handler:h, entity:m] );
+            //binding.refresh();
+           
+        }
+        
+    }
 }

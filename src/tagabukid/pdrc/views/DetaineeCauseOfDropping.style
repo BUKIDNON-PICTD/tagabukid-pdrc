@@ -1,0 +1,8 @@
+"selectedCod"[mode=='read']{
+    enabled:false;
+}
+
+"selectedCod"[mode!='read']{
+    enabled:true;
+}
+

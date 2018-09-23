@@ -27,7 +27,8 @@ class  DetaineePersonalInfoController extends CrudFormModel{
     def svc
     
     String title = "Personal Information";
-        
+     
+    def typeofinmate = ['DETENTION', 'PROVINCIAL', 'INSULAR'];
     def colors = ['BROWN', 'BLACK', 'WHITE','GREEN','BLUE'];
     def bodybuild = ['SMALL', 'MEDIUM', 'LARGE'];
     def complexion = ['FAIR', 'PALE', 'WHITE','BROWN','TAN'];
@@ -80,6 +81,8 @@ class  DetaineePersonalInfoController extends CrudFormModel{
     }
     
     def loadpersonalinfo(){
+               
+
         entity = persistenceSvc.read([ _schemaname: 'pdrc_detainees', objid: entity.objid])
         entity.detainee.putAll(persistenceSvc.read([ _schemaname: 'entityindividual', objid: entity.objid])) 
     }

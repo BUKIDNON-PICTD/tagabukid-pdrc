@@ -54,7 +54,7 @@ public class DetaineeEducationalPage extends javax.swing.JPanel {
                 , new Object[]{"editable", true}
                 , new Object[]{"editableWhen", null}
                 , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.UPPER}
-                , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
+                , new Object[]{"typeHandler", new com.rameses.rcp.common.ComboBoxColumnHandler("educationlevel", null, null)}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
                 new Object[]{"name", "shoolname"}
@@ -82,7 +82,7 @@ public class DetaineeEducationalPage extends javax.swing.JPanel {
                 , new Object[]{"editable", true}
                 , new Object[]{"editableWhen", null}
                 , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.UPPER}
-                , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
+                , new Object[]{"typeHandler", new com.rameses.rcp.common.OpenerColumnHandler("#{item.schooladdress.text}", "schoolAddressLookup")}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
                 new Object[]{"name", "course"}
@@ -184,7 +184,6 @@ public class DetaineeEducationalPage extends javax.swing.JPanel {
             })
         });
         xDataTable1.setHandler("educationalListHandler");
-        xDataTable1.setId("educationalListHandler");
         xDataTable1.setName("selectedEducational"); // NOI18N
         xHorizontalPanel1.add(xDataTable1);
 

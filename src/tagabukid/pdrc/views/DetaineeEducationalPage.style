@@ -1,8 +1,8 @@
-"selectedEducationalInfo"[mode=='read']{
+"selectedEducational"[mode=='read']{
     enabled:false;
 }
 
-"selectedEducationalInfo"[mode!='read']{
+"selectedEducational"[mode!='read']{
     enabled:true;
 }
 

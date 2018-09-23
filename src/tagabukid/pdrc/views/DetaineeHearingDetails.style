@@ -1,0 +1,8 @@
+"selectedHearing"[mode=='read']{
+    enabled:false;
+}
+
+"selectedHearing"[mode!='read']{
+    enabled:true;
+}
+
